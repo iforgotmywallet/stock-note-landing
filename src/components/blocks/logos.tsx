@@ -18,30 +18,44 @@ export const Logos = () => {
     {
       name: "Yahoo",
       logo: "/logos/yahoo.svg",
-      width: 143,
-      height: 26,
+      width: 100,
+      height: 100,
       href: "https://yahoo.com",
+    },
+    {
+      name: "langchain",
+      logo: "/logos/langchain.svg",
+      width: 150,
+      height: 150,
+      href: "https://langchain.com",
     },
     {
       name: "openai",
       logo: "/logos/openai.svg",
-      width: 154,
-      height: 31,
+      width: 100,
+      height: 100,
       href: "https://openai.com",
     },
     {
-      name: "reddit",
-      logo: "/logos/reddit.svg",
-      width: 113,
-      height: 22,
-      href: "https://reddit.com",
+      name: "nvdia",
+      logo: "/logos/nvdia-color.svg",
+      width: 150,
+      height: 150,
+      href: "https://nvdia.com",
     },
     {
-      name: "forbes",
-      logo: "/logos/forbes.svg",
-      width: 113,
-      height: 22,
-      href: "https://forbes.com",
+      name: "google",
+      logo: "/logos/google.svg",
+      width: 100,
+      height: 100,
+      href: "https://google.com",
+    },
+    {
+      name: "modal",
+      logo: "/logos/modal.svg",
+      width: 150,
+      height: 150,
+      href: "https://modal.com",
     },
   ];
 
@@ -50,17 +64,18 @@ export const Logos = () => {
       <div className="container space-y-10 lg:space-y-16">
         <div className="text-center">
           <h2 className="mb-4 text-xl text-balance md:text-2xl lg:text-3xl">
-            Using finance data from trusted sources.
+            Using real finance data and AI analysis.
             <br className="max-md:hidden" />
             <span className="text-muted-foreground">
-              Real-time market data and verified financial information.
+              Performance enhancement through hardware and real trusted finance
+              data.
             </span>
           </h2>
         </div>
 
         <div className="flex w-full flex-col items-center gap-8">
           {/* Top row - 4 logos */}
-          <LogoRow companies={topRowCompanies} gridClassName="grid-cols-4" />
+          <LogoRow companies={topRowCompanies} gridClassName="grid-cols-6" />
         </div>
       </div>
     </section>

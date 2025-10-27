@@ -1,15 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg xmlns="http://www.w3.org/2000/svg"
-aria-label="Yahoo!" role="img"
-viewBox="0 0 512 512"
-fill="#ffffff">
-<rect
-width="512" height="512"
-rx="15%"
-fill="#5f01d1"/>
-<g fill="#ffffff">
-<path d="M203 404h-62l25-59-69-165h63l37 95 37-95h62m58 76h-69l62-148h69"/>
-<circle cx="303" cy="308" r="38"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="Yahoo--Streamline-Font-Awesome" height="16" width="16">
+  <desc>
+    Yahoo Streamline Icon: https://streamlinehq.com
+  </desc>
+<!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.-->
+  <path d="m6.921178125 4.2774 -1.8360375 4.63689375 -1.813690625 -4.63689375H0.16l3.42755 8.06865625 -1.249178125 2.90870625h3.049915625l4.563696875 -10.9773625Zm3.413625 4.397875c-1.451528125 0 -2.358734375 1.571325 -1.63296875 2.828384375 0.7257625 1.2570625 2.540171875 1.2570625 3.2659375 0 0.16549375 -0.28664375 0.252621875 -0.611803125 0.252621875 -0.94279375 0 -1.04138125 -0.844209375 -1.885590625 -1.885590625 -1.885590625Zm2.1233125 -7.9300375L9.44609375 7.982834375h3.39386875L15.84 0.7452375Z" fill="#000000" stroke-width="0.0313"></path>
+</svg>

@@ -26,39 +26,49 @@ const topItems = [
     description:
       "No more Bloomberg Terminal, Yahoo Finance, or scattered research.",
     images: [
-      { src: "/logos/jira.svg", alt: "Bloomberg logo", width: 48, height: 48 },
-      { src: "/logos/excel.svg", alt: "Excel logo", width: 48, height: 48 },
       {
-        src: "/logos/notion.svg",
-        alt: "Yahoo Finance logo",
+        src: "/logos/google.svg",
+        alt: "Google logo",
         width: 48,
         height: 48,
       },
       {
-        src: "/logos/word.svg",
-        alt: "Morningstar logo",
+        src: "/logos/yahoo-color.svg",
+        alt: "Yahoo logo",
         width: 48,
         height: 48,
       },
       {
-        src: "/logos/monday.svg",
-        alt: "Seeking Alpha logo",
+        src: "/logos/openai.webp",
+        alt: "openai logo",
         width: 48,
         height: 48,
       },
       {
-        src: "/logos/drive.svg",
-        alt: "MarketWatch logo",
+        src: "/logos/bloomberg.jpeg",
+        alt: "Bloomberg logo",
         width: 48,
         height: 48,
       },
       {
-        src: "/logos/jira.svg",
-        alt: "TradingView logo",
+        src: "/logos/sa.webp",
+        alt: "Seeking alpha logo",
         width: 48,
         height: 48,
       },
-      { src: "/logos/asana.svg", alt: "Finviz logo", width: 48, height: 48 },
+      {
+        src: "/logos/modal.svg",
+        alt: "Modal logo",
+        width: 48,
+        height: 48,
+      },
+      {
+        src: "/logos/langchain.svg",
+        alt: "Langchain logo",
+        width: 48,
+        height: 48,
+      },
+      { src: "/logos/python.svg", alt: "Python logo", width: 48, height: 48 },
     ],
     className:
       "flex-1 [&>.title-container]:mb-5 md:[&>.title-container]:mb-8 md:[&>.title-container]:translate-x-2 xl:[&>.title-container]:translate-x-4 [&>.title-container]:translate-x-0",
@@ -112,7 +122,7 @@ const bottomItems = [
       },
     ],
     className:
-      "[&>.title-container]:mb-5 md:[&>.title-container]:mb-8 xl:[&>.image-container]:translate-x-6 [&>.image-container]:translate-x-2",
+      "justify-normal [&>.title-container]:mb-5 md:[&>.title-container]:mb-0 [&>.image-container]:flex-1 md:[&>.image-container]:place-items-center md:[&>.image-container]:-translate-y-3",
     fade: ["bottom"],
   },
 ];
@@ -233,14 +243,18 @@ const Item = ({ item, isLast, className }: ItemProps) => {
       ) : (
         <div className="image-container grid grid-cols-1 gap-4">
           {item.images.map((image, j) => (
-            <Image
+            <div
               key={j}
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              className="object-contain object-left-top"
-            />
+              className="relative rounded-xl bg-white/5 shadow-2xl drop-shadow-2xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_50px_-12px_rgba(0,25px_50px_-12px_rgba(0,0,0,0.5)]"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="h-auto w-full rounded-xl object-contain object-left-top"
+              />
+            </div>
           ))}
         </div>
       )}
