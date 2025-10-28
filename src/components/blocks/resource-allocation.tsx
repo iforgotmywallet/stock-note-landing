@@ -24,7 +24,7 @@ const topItems = [
   {
     title: "Replace multiple tools.",
     description:
-      "No more Bloomberg Terminal, Yahoo Finance, or scattered research.",
+      "No more scrolling Google pages, Yahoo Finance, or scattered research.",
     images: [
       {
         src: "/logos/google.svg",
@@ -45,8 +45,8 @@ const topItems = [
         height: 48,
       },
       {
-        src: "/logos/bloomberg.jpeg",
-        alt: "Bloomberg logo",
+        src: "/logos/reddit.svg",
+        alt: "Reddit logo",
         width: 48,
         height: 48,
       },
