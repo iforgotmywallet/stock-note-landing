@@ -1,60 +1,42 @@
-import { Check } from "lucide-react";
+import Link from "next/link";
+
+import { Check, ExternalLink } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
-
 import { cn } from "@/lib/utils";
 
 const plans = [
   {
     name: "🎁 Signup Bonus",
     price: "Free",
-    credits: "10 Credits",
+    credits: "100 Credits",
     description: "Get started with a few research runs",
-    features: [
-      "10 research credits included",
-      "Multiple AI agents per analysis",
-      "Enhanced stock insights",
-      "Perfect for trying the platform",
-    ],
+    analyses: "~50 analyses",
+    agentRuns: "~100 agent runs",
   },
   {
     name: "⚡ Starter Pack",
     price: "$12",
     credits: "40 Credits",
     description: "Great for individual investors",
-    features: [
-      "40 research credits",
-      "Detailed stock analyses",
-      "Agent-assisted research",
-      "Explore new investment opportunities",
-    ],
+    analyses: "~20 analyses",
+    agentRuns: "~40 agent runs",
   },
   {
     name: "🚀 Pro Pack",
     price: "$30",
     credits: "120 Credits",
     description: "For active traders",
-    features: [
-      "120 research credits",
-      "Deeper, faster insights",
-      "More agents per research run",
-      "Expanded research coverage",
-      "Higher accuracy analysis",
-    ],
+    analyses: "~60 analyses",
+    agentRuns: "~120 agent runs",
   },
   {
-    name: "💼 Power Pack",
+    name: "💼 Poower Pack",
     price: "$80",
     credits: "400 Credits",
     description: "Built for professionals",
-    features: [
-      "400 research credits",
-      "Maximum agent capacity",
-      "Best rate per credit",
-      "Portfolio management support",
-      "Heavy research workloads",
-      "Scheduling features (coming soon)",
-    ],
+    analyses: "~200 analyses",
+    agentRuns: "~400 agent runs",
   },
 ];
 
@@ -67,9 +49,19 @@ export const Pricing = ({ className }: { className?: string }) => {
             Pricing
           </h2>
           <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-            Choose your credit pack based on your research needs. Each credit
-            powers a comprehensive multi-agent stock analysis.
+            Choose your credit pack based on your research needs. Each analysis
+            costs 2 credits, and each individual agent run costs 1 credit.
           </p>
+          <div className="flex items-center justify-center gap-1 text-sm">
+            <span className="text-muted-foreground">Learn more about our</span>
+            <Link
+              href="/about#workflow"
+              className="text-primary hover:text-primary/80 inline-flex items-center gap-1 font-medium transition-colors"
+            >
+              AI agents workflow
+              <ExternalLink className="h-3 w-3" />
+            </Link>
+          </div>
         </div>
 
         <div className="mt-8 grid items-start gap-5 text-start md:mt-12 md:grid-cols-2 lg:mt-20 lg:grid-cols-4">
@@ -102,15 +94,20 @@ export const Pricing = ({ className }: { className?: string }) => {
                 </span>
 
                 <div className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <div
-                      key={feature}
-                      className="text-muted-foreground flex items-center gap-1.5"
-                    >
-                      <Check className="size-4 shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                  <div className="text-muted-foreground flex items-center gap-1.5">
+                    <Check className="size-4 shrink-0" />
+                    <span className="text-sm">{plan.analyses}</span>
+                  </div>
+                  <div className="text-muted-foreground flex items-center gap-1.5">
+                    <Check className="size-4 shrink-0" />
+                    <span className="text-sm">{plan.agentRuns}</span>
+                  </div>
+                  <div className="mt-4 border-t pt-3">
+                    <div className="text-muted-foreground space-y-1 text-xs">
+                      <div>• Full analysis: 2 credits</div>
+                      <div>• Individual agent: 1 credit</div>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>

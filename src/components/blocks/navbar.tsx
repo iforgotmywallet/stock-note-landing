@@ -5,8 +5,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ChevronRight, Github } from "lucide-react";
-import { IconStackMiddle } from "@tabler/icons-react";
+import {
+  IconClock24,
+  IconChartHistogram,
+  IconDatabase,
+  IconStackMiddle,
+} from "@tabler/icons-react";
+import { ChevronRight } from "lucide-react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -29,13 +34,23 @@ const ITEMS = [
         title: "AI Stock Analysis",
         href: "/#feature-modern-teams",
         description:
-          "Multi-agent AI system that provides comprehensive stock analysis with debate-style insights",
+          "AI agents debate multiple perspectives for comprehensive stock analysis",
+        icon: IconChartHistogram,
       },
       {
         title: "Real-time Data",
         href: "/#resource-allocation",
         description:
-          "Access live market data and financial metrics for accurate analysis",
+          "Access real-time aggregated data and financial metrics for accurate analysis",
+        icon: IconDatabase,
+      },
+      {
+        title: "Stock Analysis Cron Job",
+        href: "#",
+        description:
+          "Schedule recurring analysis on tickers for always-ready reports",
+        comingSoon: true,
+        icon: IconClock24,
       },
     ],
   },
@@ -77,19 +92,37 @@ export const Navbar = () => {
                       {link.dropdownItems.map((item) => (
                         <li key={item.title}>
                           <NavigationMenuLink asChild>
-                            <Link
-                              href={item.href}
-                              className="group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex items-center gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none"
-                            >
-                              <div className="space-y-1.5 transition-transform duration-300 group-hover:translate-x-1">
-                                <div className="text-sm leading-none font-medium">
-                                  {item.title}
+                            {item.comingSoon ? (
+                              <div className="group flex cursor-not-allowed items-center gap-4 rounded-md p-3 leading-none no-underline opacity-60 outline-hidden transition-colors select-none">
+                                <item.icon className="text-muted-foreground h-6 w-6 shrink-0" />
+                                <div className="space-y-1.5">
+                                  <div className="flex items-center gap-2 text-sm leading-none font-medium">
+                                    {item.title}
+                                    <span className="bg-primary/10 text-primary rounded-full px-2 py-0.5 text-xs font-medium">
+                                      Coming Soon
+                                    </span>
+                                  </div>
+                                  <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+                                    {item.description}
+                                  </p>
                                 </div>
-                                <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-                                  {item.description}
-                                </p>
                               </div>
-                            </Link>
+                            ) : (
+                              <Link
+                                href={item.href}
+                                className="group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex items-center gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none"
+                              >
+                                <item.icon className="text-muted-foreground group-hover:text-accent-foreground h-6 w-6 shrink-0 transition-colors" />
+                                <div className="space-y-1.5 transition-transform duration-300 group-hover:translate-x-1">
+                                  <div className="text-sm leading-none font-medium">
+                                    {item.title}
+                                  </div>
+                                  <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+                                    {item.description}
+                                  </p>
+                                </div>
+                              </Link>
+                            )}
                           </NavigationMenuLink>
                         </li>
                       ))}
@@ -116,19 +149,23 @@ export const Navbar = () => {
         {/* Auth Buttons */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Link href="/login" className="max-lg:hidden">
+          <a
+            href={process.env.NEXT_PUBLIC_LOGIN_URL + "/auth/sign-in" || "/"}
+            className="max-lg:hidden"
+          >
             <Button variant="outline">
               <span className="relative z-10">Login</span>
             </Button>
-          </Link>
-          <a
-            href="https://github.com/stocknotes"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Github className="size-4" />
-            <span className="sr-only">GitHub</span>
           </a>
-
+          {/* put future link button here*/}
+          <a
+            href={process.env.NEXT_PUBLIC_LOGIN_URL || "/"}
+            className="max-lg:hidden"
+          >
+            <Button variant="outline">
+              <span className="relative z-10">Dashboard</span>
+            </Button>
+          </a>
           {/* Hamburger Menu Button (Mobile Only) */}
           <button
             className="text-muted-foreground relative flex size-8 lg:hidden"
@@ -191,27 +228,47 @@ export const Navbar = () => {
                   )}
                 >
                   <div className="bg-muted/50 space-y-3 rounded-lg p-4">
-                    {link.dropdownItems.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={item.href}
-                        className="group hover:bg-accent block rounded-md p-2 transition-colors"
-                        onClick={() => {
-                          setIsMenuOpen(false);
-                          setOpenDropdown(null);
-                        }}
-                      >
-                        <div className="transition-transform duration-200 group-hover:translate-x-1">
-                          <div className="text-primary font-medium">
-                            {item.title}
+                    {link.dropdownItems.map((item) =>
+                      item.comingSoon ? (
+                        <div
+                          key={item.title}
+                          className="group flex cursor-not-allowed items-start gap-3 rounded-md p-2 opacity-60 transition-colors"
+                        >
+                          <item.icon className="text-muted-foreground mt-0.5 h-5 w-5 shrink-0" />
+                          <div>
+                            <div className="text-primary flex items-center gap-2 font-medium">
+                              {item.title}
+                              <span className="bg-primary/10 text-primary rounded-full px-2 py-0.5 text-xs font-medium">
+                                Coming Soon
+                              </span>
+                            </div>
+                            <p className="text-muted-foreground mt-1 text-sm">
+                              {item.description}
+                            </p>
                           </div>
-
-                          <p className="text-muted-foreground mt-1 text-sm">
-                            {item.description}
-                          </p>
                         </div>
-                      </Link>
-                    ))}
+                      ) : (
+                        <Link
+                          key={item.title}
+                          href={item.href}
+                          className="group hover:bg-accent flex items-start gap-3 rounded-md p-2 transition-colors"
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setOpenDropdown(null);
+                          }}
+                        >
+                          <item.icon className="text-muted-foreground group-hover:text-accent-foreground mt-0.5 h-5 w-5 shrink-0 transition-colors" />
+                          <div className="transition-transform duration-200 group-hover:translate-x-1">
+                            <div className="text-primary font-medium">
+                              {item.title}
+                            </div>
+                            <p className="text-muted-foreground mt-1 text-sm">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>

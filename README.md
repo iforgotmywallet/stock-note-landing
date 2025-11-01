@@ -14,11 +14,40 @@ Mainline is a free template built with shadcn/ui, Tailwind 4 and Next.js 15.
 npm install
 ```
 
+Copy the environment variables:
+
+```bash
+cp .env.example .env
+```
+
+Update `.env` with your email address:
+
+```bash
+OWNER_EMAIL=your-email@example.com
+```
+
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Contact Form Setup
+
+The contact form is ready to work out of the box. When someone submits an inquiry:
+
+1. Form data is validated using Zod schema
+2. The inquiry details are logged to the console (check your terminal)
+3. Success message is shown to the user
+
+To enable actual email sending, you can integrate with email services like:
+
+- **Resend** (recommended)
+- **SendGrid**
+- **AWS SES**
+- **Nodemailer with SMTP**
+
+The email functionality is located in `src/lib/email.ts` - just uncomment and configure your preferred email service.
 
 ## Features
 

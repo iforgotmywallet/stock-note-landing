@@ -63,7 +63,7 @@ export function Footer() {
         </ul>
         <div className="text-center">
           <p className="text-muted-foreground mb-4 text-sm">
-            Built on research forked from{" "}
+            Built on research forked from open souce project{" "}
             <Link
               href="https://github.com/TauricResearch"
               className="underline underline-offset-4 hover:opacity-75"

@@ -13,49 +13,74 @@ const categories = [
     title: "Getting Started",
     questions: [
       {
-        question: "How do I generate my first stock report?",
+        question: "What is StockNotes?",
         answer:
-          "Simply enter any stock ticker symbol (like AAPL, TSLA, or MSFT) and our AI agents will generate a comprehensive analysis report within seconds using real-time market data.",
+          "StockNotes is your shortcut to doing real stock research — without spending hours digging through charts, news, and reports. It gathers live data from major finance sites, news outlets, and social media, then uses a network of AI agents to turn it all into an easy-to-read research summary. Think of it as your personal stock analyst that actually explains things clearly.",
       },
       {
-        question: "What data sources does StockNotes use?",
+        question: "Do I need to be a finance expert to use it?",
         answer:
-          "We integrate with multiple premium financial data providers to ensure accuracy and completeness, including real-time market data, financial statements, news feeds, and analyst reports.",
+          "Not at all. StockNotes is made for regular investors who want to make smarter decisions — even if you don't know where to start. You just pick a stock, click \"analyze,\" and let the AI do the work. You'll get insights that usually take hours (or multiple tools) to find.",
       },
       {
-        question: "How accurate are the AI-generated reports?",
+        question: "What makes StockNotes different from other tools?",
         answer:
-          "Our multi-agent system cross-references multiple data sources and uses debate-style analysis to provide balanced perspectives. All analysis includes source citations for verification.",
-      },
-    ],
-  },
-  {
-    title: "Features & Pricing",
-    questions: [
-      {
-        question: "What's included in the free plan?",
-        answer:
-          "The free plan includes 5 stock reports per month with basic AI analysis and real-time data access. Perfect for individual investors getting started.",
+          "Most platforms just throw data at you — StockNotes connects the dots for you. It explains why a stock is moving, what's being said in the news or social media, and what key numbers to focus on. It's built for people who want clarity, not complexity.",
       },
       {
-        question: "Can I upgrade or downgrade my plan anytime?",
+        question: "Can I run multiple analyses at the same time?",
         answer:
-          "Yes, you can change your plan at any time. Upgrades take effect immediately, while downgrades take effect at the next billing cycle.",
+          "Yes — definitely! You can run as many analyses as your credits allow. Right now, we let you run two at the same time, and the rest will queue up automatically. As we scale up and handle more traffic, we'll raise that limit for power users.",
+      },
+      {
+        question: "How long does each run take?",
+        answer:
+          "Each analysis usually takes around 4 minutes from start to finish — just enough time to grab a coffee while your AI team does the heavy lifting.",
       },
     ],
   },
   {
-    title: "Technical Questions",
+    title: "Credits & Pricing",
     questions: [
       {
-        question: "Do you offer API access?",
+        question: "How do credits work?",
         answer:
-          "API access is available with our Enterprise plan, allowing you to integrate StockNotes analysis directly into your existing workflows and applications.",
+          "Each research run uses credits based on how many AI analysts you include. A base run costs 2 credits, and each analyst you add costs 1 extra credit. You can mix and match analysts for deeper insights — your credits only get used when you actually run an analysis.",
       },
       {
-        question: "How often is the data updated?",
+        question: "What happens after I use up my signup credits?",
         answer:
-          "Market data is updated in real-time during trading hours. Fundamental data and financial statements are updated as soon as they become available from our data providers.",
+          "When you sign up, you get 100 free credits to explore and run real research reports. Once you've used them up, you can grab a credit pack anytime — no subscription required.",
+      },
+      {
+        question: "Do credits ever expire?",
+        answer:
+          "Nope. Your credits never expire. Use them whenever you want — today, next week, or next quarter. StockNotes is built for flexibility, not pressure.",
+      },
+      {
+        question: "Can I upgrade or switch plans later?",
+        answer:
+          "Absolutely. Credit packs are stackable, so you can buy more anytime without losing anything. If you start small and decide you want more power later, just grab a bigger pack — it's that simple.",
+      },
+    ],
+  },
+  {
+    title: "Technical",
+    questions: [
+      {
+        question: "Is StockNotes open source?",
+        answer:
+          "Almost! We're still cleaning things up and getting everything ready for public release. The plan is to open-source the core system so anyone can explore how it works, contribute ideas, or even build their own research agents. We love transparency — just want it to look halfway decent before sharing the code 😄.",
+      },
+      {
+        question: "What's StockNotes built with?",
+        answer:
+          "StockNotes runs on the TradingAgents framework — a flexible setup for AI-driven research. The backend's built in Python, powered by NVIDIA GPUs, and the frontend runs on Next.js with shadcn/ui for that clean, simple feel. Everything's designed to be fast, modular, and developer-friendly.",
+      },
+      {
+        question: "Can developers contribute or self-host it?",
+        answer:
+          "Not quite yet — but that's the goal. Once the open-source version is live, we'll add setup guides, API docs, and contribution notes. We'd love for developers to plug in new data sources, design their own agents, or even host their own version of StockNotes down the road.",
       },
     ],
   },

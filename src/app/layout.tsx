@@ -1,74 +1,24 @@
+import { Geist } from "next/font/google";
+
 import type { Metadata } from "next";
 
 import { Footer } from "@/components/blocks/footer";
 import { Navbar } from "@/components/blocks/navbar";
 import { StyleGlideProvider } from "@/components/styleglide-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: {
-    default: "StockNotes - AI Stock Analysis Reports",
-    template: "%s | StockNotes",
-  },
-  description:
-    "Generate comprehensive AI-powered stock analysis reports with real-time data and multi-agent debate-style analysis for any stock ticker.",
-  keywords: [
-    "stock analysis",
-    "AI reports",
-    "stock research",
-    "financial analysis",
-    "stock ticker",
-    "investment research",
-    "market analysis",
-    "stock reports",
-    "financial data",
-    "investment tools",
-    "stock insights",
-    "market research",
-    "equity analysis",
-  ],
-  authors: [{ name: "StockNotes" }],
-  creator: "StockNotes",
-  publisher: "StockNotes",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: [
-      { url: "/favicon/favicon.ico", sizes: "48x48" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon/favicon.ico" },
-    ],
-    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
-    shortcut: [{ url: "/favicon/favicon.ico" }],
-  },
-  openGraph: {
-    title: "StockNotes - AI Stock Analysis Reports",
-    description:
-      "Generate comprehensive AI-powered stock analysis reports with real-time data and multi-agent debate-style analysis for any stock ticker.",
-    siteName: "StockNotes",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "StockNotes - AI Stock Analysis Reports",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "StockNotes - AI Stock Analysis Reports",
-    description:
-      "Generate comprehensive AI-powered stock analysis reports with real-time data and multi-agent debate-style analysis for any stock ticker.",
-    images: ["/og-image.jpg"],
-    creator: "@stocknotes",
-  },
+  title: "StockNotes",
+  description: "AI powered real-time stock report",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
+
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
 
 export default function RootLayout({
   children,
@@ -76,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={geistSans.variable}>
       <head>
         <script
           async
@@ -84,10 +34,10 @@ export default function RootLayout({
           src="https://tweakcn.com/live-preview.min.js"
         />
       </head>
-      <body>
+      <body className="font-sans">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

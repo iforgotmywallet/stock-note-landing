@@ -11,7 +11,7 @@ const stats = [
   },
   {
     value: "Real-time",
-    label: "Market Data",
+    label: "Data Aggregation",
   },
   {
     value: "1-Click",
@@ -49,10 +49,10 @@ export function AboutHero() {
             to.
             <br />
             <br />
-            With just one click, StockNotes pulls it all together into a live,
-            comprehensive research report. It's like having a full research team
-            in your browser — fast, clear, and built for people who want to
-            understand what's really moving the market.
+            With just one click, StockNotes pulls it all together into a
+            real-time, comprehensive research report. It's like having a full
+            research team in your browser — fast, clear, and built for people
+            who want to understand what's really moving the market.
           </p>
         </div>
 

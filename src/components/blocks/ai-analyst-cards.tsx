@@ -2,6 +2,7 @@ import React from "react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import { GroupAvatar } from "@/components/ui/group-avatar";
 
 // TypeScript interfaces for Analyst data structure and component props
 export interface Analyst {
@@ -28,14 +29,12 @@ const analysts: Analyst[] = [
     name: "Market Analyst",
     role: "Technical Trading Expert",
     description:
-      "Your go-to expert for technical trading analysis, diving deep into stock data from the past 2 weeks to uncover patterns that matter. Using advanced technical indicators and chart analysis, this analyst identifies key entry and exit points, trend reversals, and momentum shifts that could impact your trading decisions.",
+      "Expert in technical analysis using advanced indicators and chart patterns to identify key entry/exit points and trend reversals.",
     capabilities: [
-      "Advanced technical analysis using 20+ indicators including RSI, MACD, and Bollinger Bands",
-      "Pattern recognition for head & shoulders, triangles, flags, and breakout formations",
-      "Volume analysis to confirm price movements and identify institutional activity",
-      "Support and resistance level identification with precision entry/exit points",
-      "Momentum analysis using moving averages and trend strength indicators",
-      "Risk assessment with stop-loss and take-profit recommendations",
+      "Technical analysis with RSI, MACD, Bollinger Bands",
+      "Pattern recognition and breakout formations",
+      "Support/resistance levels and momentum analysis",
+      "Risk assessment with stop-loss recommendations",
     ],
     avatarSeed: "market",
   },
@@ -44,14 +43,12 @@ const analysts: Analyst[] = [
     name: "News Analyst",
     role: "Information Research Specialist",
     description:
-      "The ultimate news detective, constantly scanning the web for company-specific developments that could move markets. From earnings announcements to regulatory changes, this analyst ensures you never miss a critical piece of information that could impact your investments.",
+      "Constantly scanning financial news and company developments to identify market-moving information and regulatory changes.",
     capabilities: [
-      "Real-time web scraping of financial news from 100+ trusted sources",
-      "Company-specific event tracking including earnings, mergers, and partnerships",
-      "Regulatory filing alerts and SEC announcement monitoring",
-      "Executive leadership changes and insider transaction analysis",
-      "Market-moving news correlation with stock price movements",
-      "Competitive landscape analysis and industry trend identification",
+      "Real-time news aggregation from 100+ sources",
+      "Company event tracking and SEC filings",
+      "Executive changes and insider transactions",
+      "Market correlation with news events",
     ],
     avatarSeed: "news",
   },
@@ -60,14 +57,12 @@ const analysts: Analyst[] = [
     name: "Fundamental Analyst",
     role: "Financial Data Expert",
     description:
-      "The numbers don't lie, and this analyst knows how to read them. Specializing in deep-dive analysis of SEC filings, income statements, balance sheets, and cash flow statements, this expert uncovers the true financial health and intrinsic value of companies you're considering.",
+      "Deep-dive analysis of corporate key metrics, financial statements, and company fundamentals to uncover true financial health and value.",
     capabilities: [
-      "Comprehensive SEC filing analysis including 10-K, 10-Q, and 8-K reports",
-      "Income statement deep-dive with revenue growth and profitability trends",
-      "Balance sheet evaluation including debt-to-equity and asset quality assessment",
-      "Cash flow analysis covering operating, investing, and financing activities",
-      "Insider trading pattern analysis and executive compensation review",
-      "Financial ratio calculations and peer comparison analysis",
+      "Corporate Overview & Key Metrics",
+      "Income statement and balance sheet evaluation",
+      "Cash flow and debt-to-equity analysis",
+      "Financial ratios and peer comparisons",
     ],
     avatarSeed: "fundamental",
   },
@@ -76,18 +71,189 @@ const analysts: Analyst[] = [
     name: "Social Analyst",
     role: "Sentiment Analysis Expert",
     description:
-      "Tapping into the pulse of social media and online communities, this analyst monitors platforms like Reddit to gauge public sentiment and discussion volume. By analyzing the mood and conversation trends around stocks, this expert provides insights into market psychology and potential crowd-driven price movements.",
+      "Monitors social media and online communities to gauge public sentiment and identify crowd-driven price movements.",
     capabilities: [
-      "Reddit sentiment analysis across investing subreddits like r/stocks and r/investing",
-      "Social media monitoring including Twitter, Discord, and financial forums",
-      "Discussion volume tracking to identify trending stocks and emerging interest",
-      "Sentiment scoring using natural language processing and emotion detection",
-      "Community trend identification and viral stock movement prediction",
-      "Contrarian indicator analysis to spot potential market reversals",
+      "Reddit sentiment analysis and social monitoring",
+      "Discussion volume and trending stock tracking",
+      "Sentiment scoring with NLP and emotion detection",
+      "Contrarian indicators and viral movement prediction",
     ],
     avatarSeed: "social",
   },
 ];
+
+// ResearchWorkflowCard component for the team workflow visualization
+function ResearchWorkflowCard() {
+  const researchTeam = [
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=researcher1`,
+      fallback: "R1",
+      alt: "Researcher 1",
+    },
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=researcher2`,
+      fallback: "R2",
+      alt: "Researcher 2",
+    },
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=researcher3`,
+      fallback: "R3",
+      alt: "Researcher 3",
+    },
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=researcher4`,
+      fallback: "R4",
+      alt: "Researcher 4",
+    },
+  ];
+
+  const managementTeam = [
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=manager1`,
+      fallback: "M1",
+      alt: "Manager 1",
+    },
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=manager2`,
+      fallback: "M2",
+      alt: "Manager 2",
+    },
+    {
+      src: `https://api.dicebear.com/9.x/pixel-art/svg?seed=manager3`,
+      fallback: "M3",
+      alt: "Manager 3",
+    },
+  ];
+
+  return (
+    <Card className="transition-all duration-200 hover:shadow-md">
+      <CardContent className="p-8">
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <h3 className="text-2xl font-semibold tracking-tight">
+            Research Workflow
+          </h3>
+          <p className="text-muted-foreground mt-2 text-sm">
+            From individual analysis to comprehensive insights
+          </p>
+        </div>
+
+        {/* Workflow Steps */}
+        <div className="space-y-8">
+          {/* Step 1: Research Team */}
+          <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
+            <div className="flex flex-col items-center space-y-3">
+              <GroupAvatar
+                avatars={researchTeam}
+                size="lg"
+                className="justify-center"
+              />
+              <div className="text-center">
+                <h4 className="font-semibold">Research Team</h4>
+                <p className="text-muted-foreground text-sm">
+                  Debates bullish vs bearish perspectives
+                </p>
+              </div>
+            </div>
+
+            {/* Arrow */}
+            <div className="flex items-center justify-center">
+              <div className="text-muted-foreground rotate-90 sm:rotate-0">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Step 2: Management Team */}
+            <div className="flex flex-col items-center space-y-3">
+              <GroupAvatar
+                avatars={managementTeam}
+                size="lg"
+                className="justify-center"
+              />
+              <div className="text-center">
+                <h4 className="font-semibold">Management Team</h4>
+                <p className="text-muted-foreground text-sm">
+                  Referees debates & balances views
+                </p>
+              </div>
+            </div>
+
+            {/* Arrow */}
+            <div className="flex items-center justify-center">
+              <div className="text-muted-foreground rotate-90 sm:rotate-0">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Step 3: Final Report */}
+            <div className="flex flex-col items-center space-y-3">
+              <div className="bg-primary/10 border-primary/20 flex h-12 w-12 items-center justify-center rounded-full border-2">
+                <svg
+                  className="text-primary h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h4 className="font-semibold">Comprehensive Report</h4>
+                <p className="text-muted-foreground text-sm">
+                  Balanced, actionable insights
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="border-t pt-6">
+            <p className="text-foreground text-center leading-relaxed">
+              Our research workflow transforms individual analyst findings into
+              comprehensive, multi-perspective reports. The research team
+              collects and cross-references data from all four analysts, then
+              engages in spirited debates—some agents championing bullish
+              outlooks while others argue bearish scenarios, with heated
+              discussions on high-risk vs. conservative approaches. The
+              management team then steps in to referee these passionate debates,
+              synthesizing the best arguments from all perspectives to deliver
+              balanced, actionable investment intelligence.
+            </p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 // AnalystCard sub-component with proper TypeScript props interface
 function AnalystCard({ analyst }: AnalystCardProps) {
@@ -106,47 +272,47 @@ function AnalystCard({ analyst }: AnalystCardProps) {
 
   return (
     <Card className="h-full transition-all duration-200 hover:shadow-md">
-      <CardContent className="p-6">
+      <CardContent className="p-4">
         {/* Avatar Section */}
-        <div className="mb-4 flex items-start space-x-4">
-          <Avatar className="h-20 w-20 shrink-0 border">
+        <div className="mb-3 flex items-start space-x-3">
+          <Avatar className="h-12 w-12 shrink-0 border bg-white dark:bg-black">
             <AvatarImage
               src={avatarUrl}
               alt={`${analyst.name} avatar`}
               className="object-cover"
             />
-            <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
+            <AvatarFallback className="bg-white text-sm font-semibold text-black dark:bg-black dark:text-white">
               {getInitials(analyst.name)}
             </AvatarFallback>
           </Avatar>
           <div className="min-w-0 flex-1">
             {/* Typography Hierarchy - Analyst Name */}
-            <h3 className="text-xl leading-tight font-semibold tracking-tight">
+            <h3 className="text-lg leading-tight font-semibold tracking-tight">
               {analyst.name}
             </h3>
             {/* Typography Hierarchy - Role */}
-            <p className="text-muted-foreground mt-1 text-sm font-medium">
+            <p className="text-muted-foreground mt-1 text-xs font-medium">
               {analyst.role}
             </p>
           </div>
         </div>
 
         {/* Description Section */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Typography Hierarchy - Description */}
-          <p className="text-foreground leading-relaxed">
+          <p className="text-foreground text-sm leading-relaxed">
             {analyst.description}
           </p>
 
           {/* Capabilities Section */}
           <div>
-            <h4 className="text-foreground mb-3 text-sm font-semibold">
-              Key Capabilities:
+            <h4 className="text-foreground mb-2 text-xs font-semibold tracking-wide uppercase">
+              Key Capabilities
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {analyst.capabilities.map((capability, index) => (
-                <li key={index} className="flex items-start text-sm">
-                  <span className="text-muted-foreground mt-1 mr-3 h-1 w-1 shrink-0 rounded-full bg-current" />
+                <li key={index} className="flex items-start text-xs">
+                  <span className="text-muted-foreground mt-1.5 mr-2 h-1 w-1 shrink-0 rounded-full bg-current" />
                   <span className="text-muted-foreground leading-relaxed">
                     {capability}
                   </span>
@@ -165,10 +331,19 @@ export default function AIAnalystCards({}: AIAnalystCardsProps) {
   return (
     <section className="py-8 lg:py-12">
       <div className="container">
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
-          {analysts.map((analyst) => (
-            <AnalystCard key={analyst.id} analyst={analyst} />
-          ))}
+        <div className="mx-auto max-w-5xl space-y-8">
+          {/* Workflow Title */}
+          <h2 className="text-5xl font-bold tracking-tight">Workflow</h2>
+
+          {/* Individual Analyst Cards */}
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
+            {analysts.map((analyst) => (
+              <AnalystCard key={analyst.id} analyst={analyst} />
+            ))}
+          </div>
+
+          {/* Research Workflow Card - Full Width */}
+          <ResearchWorkflowCard />
         </div>
       </div>
     </section>

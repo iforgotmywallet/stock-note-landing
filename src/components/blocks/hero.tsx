@@ -15,7 +15,7 @@ const features = [
   {
     title: "Real-time data",
     description:
-      "Access live market data and financial metrics for any stock ticker.",
+      "Access real-time aggregated data and financial metrics for any stock ticker.",
     icon: CircleDot,
   },
   {
@@ -25,8 +25,9 @@ const features = [
     icon: Blend,
   },
   {
-    title: "Mono text reports",
-    description: "Clean, readable reports in a consistent monospace format.",
+    title: "AI-powered portfolio",
+    description:
+      "Automatically simulate portfolio performance with AI-driven insights and backtesting.",
     icon: Diamond,
   },
   {
@@ -44,12 +45,12 @@ export const Hero = () => {
         {/* Left side - Main content */}
         <div className="flex-1">
           <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            StockNotes AI Reports
+            StockNotes AI Portfolios
           </h1>
 
           <p className="text-muted-foreground text-1xl mt-5 md:text-3xl">
-            Generate comprehensive stock analysis reports using AI agents with
-            real-time data and debate-style insights
+            An AI-powered portfolio research and performance tracking tool that
+            analyzes, trades, and visualizes your investments in real time.
           </p>
 
           <div className="bg-muted/50 mt-4 rounded-lg border px-4 py-3">

@@ -13,7 +13,7 @@ const items = [
     image: "/features/ticker-card.png",
   },
   {
-    title: "Real-time market data integration",
+    title: "Real-time data aggregation",
     image: "/features/debate-card.png",
   },
   {
@@ -40,9 +40,9 @@ export const Features = () => {
             Built for smart investors
           </h2>
           <p className="text-muted-foreground leading-snug">
-            StockNotes combines real-time market data with AI-powered analysis
-            to deliver comprehensive stock reports that help you make informed
-            investment decisions.
+            StockNotes combines real-time aggregated data with AI-powered
+            analysis to deliver comprehensive stock reports that help you make
+            informed investment decisions.
           </p>
         </div>
 

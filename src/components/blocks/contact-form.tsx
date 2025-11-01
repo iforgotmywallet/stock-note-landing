@@ -25,6 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { TermsConditionsModal } from "@/components/ui/terms-conditions-modal";
 import { Textarea } from "@/components/ui/textarea";
 import { formSchema } from "@/lib/form-schema";
 
@@ -44,18 +45,20 @@ export function ContactForm() {
   });
   const formAction = useAction(serverAction, {
     onSuccess: () => {
-      // TODO: show success message
       form.reset();
     },
-    onError: () => {
-      // TODO: show error message
+    onError: (error) => {
+      if (process.env.NODE_ENV === "development") {
+        // eslint-disable-next-line no-console
+        console.error("Form submission error:", error);
+      }
     },
   });
   const handleSubmit = form.handleSubmit(async (data: Schema) => {
     formAction.execute(data);
   });
 
-  const { isExecuting, hasSucceeded } = formAction;
+  const { isExecuting, hasSucceeded, hasErrored } = formAction;
   if (hasSucceeded) {
     return (
       <div className="w-full gap-2 rounded-md border p-2 sm:p-5 md:p-8">
@@ -233,15 +236,24 @@ export function ContactForm() {
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel>I agree to the terms and conditions</FormLabel>
+                <TermsConditionsModal>
+                  <FormLabel className="cursor-pointer hover:underline">
+                    I agree to the terms and conditions
+                  </FormLabel>
+                </TermsConditionsModal>
 
                 <FormMessage />
               </div>
             </FormItem>
           )}
         />
+        {hasErrored && (
+          <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600">
+            Failed to submit form. Please try again.
+          </div>
+        )}
         <div className="flex w-full items-center justify-end pt-3">
-          <Button className="rounded-lg" size="sm">
+          <Button className="rounded-lg" size="sm" disabled={isExecuting}>
             {isExecuting ? "Submitting..." : "Submit"}
           </Button>
         </div>
