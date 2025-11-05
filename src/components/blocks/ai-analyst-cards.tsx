@@ -249,6 +249,22 @@ function ResearchWorkflowCard() {
               balanced, actionable investment intelligence.
             </p>
           </div>
+
+          {/* Attribution */}
+          <div className="border-t pt-4">
+            <p className="text-muted-foreground text-center text-xs">
+              Framework built based upon the{" "}
+              <a
+                href="https://github.com/TauricResearch/TradingAgents"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 font-medium underline transition-colors"
+              >
+                TradingAgents
+              </a>{" "}
+              open source project
+            </p>
+          </div>
         </div>
       </CardContent>
     </Card>
